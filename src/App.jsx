@@ -1,121 +1,58 @@
 import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [email, setEmail] = useState('')
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div className="landing">
+      <header className="header">
+        <div className="logo">SENAI<span>TEC</span></div>
+        <nav>
+          <a href="#grade">Grade</a>
+          <a href="#contato" className="btn-small">Inscreva-se</a>
+        </nav>
+      </header>
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
+      <section className="hero">
+        <div className="hero-text">
+          <span className="tag">VESTIBULAR 2026 ABERTO</span>
+          <h1>Desenvolvimento de <span>Sistemas</span></h1>
+          <p>Torne-se um dev full-stack em 2 anos. Aprenda React, Node, Banco de Dados e projetos reais com professores do mercado.</p>
+          <div className="hero-actions">
+            <a href="#contato" className="btn-primary">Garantir minha vaga</a>
+            <span>✓ 95% de empregabilidade</span>
+          </div>
         </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
+        <div className="hero-card">
+          <div className="card-top">💻</div>
+          <h3>O que você vai criar:</h3>
           <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
+            <li>✓ Sites e Landing Pages</li>
+            <li>✓ Apps e Sistemas Web</li>
+            <li>✓ APIs e Banco de Dados</li>
+            <li>✓ Portfólio Profissional</li>
           </ul>
         </div>
       </section>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+      <section id="grade" className="features">
+        <div className="feature"><h3>⚛️ Front-end</h3><p>React, HTML, CSS, JavaScript</p></div>
+        <div className="feature"><h3>🟢 Back-end</h3><p>Node.js, APIs, Git/GitHub</p></div>
+        <div className="feature"><h3>🗄️ Dados</h3><p>SQL, Modelagem, Deploy</p></div>
+      </section>
+
+      <section id="contato" className="cta">
+        <h2>Pronto para começar?</h2>
+        <p>Deixe seu email e te avisamos da próxima turma.</p>
+        <div className="form">
+          <input type="email" placeholder="seu@email.com" value={email} onChange={e=>setEmail(e.target.value)} />
+          <button onClick={()=>alert(`Obrigado! Vamos avisar em: ${email}`)}>Quero me inscrever</button>
+        </div>
+      </section>
+
+      <footer>Feito por Ananda Nunes • SENAI Desenvolvimento de Sistemas • 2026</footer>
+    </div>
   )
 }
 
